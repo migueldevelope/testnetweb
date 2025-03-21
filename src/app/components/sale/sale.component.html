@@ -1,0 +1,28 @@
+<div>
+    <h2>Sales</h2>
+    <form (ngSubmit)="create()">
+        <div>
+            <label for="saleNumber">Sale Number:</label>
+            <input type="number" id="saleNumber" [(ngModel)]="input.saleNumber" name="saleNumber" required>
+        </div>
+        <div>
+            <label for="customer">Customer:</label>
+            <input type="text" id="customer" [(ngModel)]="input.customer" name="customer" required>
+        </div>
+        <div>
+            <label for="date">Date:</label>
+            <input type="date" id="date" [(ngModel)]="input.date" name="date" required>
+        </div>
+        <div>
+            <label for="branch">Branch:</label>
+            <input type="text" id="branch" [(ngModel)]="input.branch" name="branch" required>
+        </div>
+        <button type="submit">Create Sale</button>
+    </form>
+    <ul>
+        <li *ngFor="let sale of sales">
+            {{ sale.saleNumber }} - {{ sale.customer }} - {{ sale.total }}
+            <button (click)="delete(sale.id)">Delete</button>
+        </li>
+    </ul>
+</div>
